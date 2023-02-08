@@ -7,6 +7,7 @@ const {
   authUser,
   getUserProfile,
   registerUser,
+  updateUserProfile,
 } = require("../controllers/userController");
 
 // @desc    Register a new user
@@ -23,5 +24,10 @@ router.post("/login", authUser);
 // @route   GET /api/users/profile
 // @access  Private
 router.get("/profile", [protect], getUserProfile);
+
+// @desc    Update user profile
+// @route   PUT /api/users/profile
+// @access  Private
+router.put("/profile", [protect], updateUserProfile);
 
 module.exports = router;
