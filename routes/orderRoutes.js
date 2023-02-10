@@ -6,12 +6,18 @@ const {
   addOrderItems,
   getOrderById,
   updateOrderToPaid,
+  getMyOrders,
 } = require("../controllers/orderController");
 
 // @desc    Create new order
 // @route   POST /api/orders
 // @access  Private
 router.post("/", [protect], addOrderItems);
+
+// @desc    Get logged in user orders
+// @route   GET /api/orders/myorders
+// @access  Private
+router.get("/myorders", [protect], getMyOrders);
 
 // @desc    Get order by ID
 // @route   GET /api/orders/:id
